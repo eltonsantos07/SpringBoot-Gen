@@ -9,6 +9,8 @@ public class HelloController {
 	@GetMapping("/hello")
 	public String sayHelo(){
 
-		return "Hello World!";
+		return "Hello World!\n\n"
+				+ "Meu objetivo de aprendizagem para essa semana é explorar algumas funcionalidades do Spring"
+				+ " e me familiarizar com essa nova ferremanta, sendo persistente para superar os possíveis desafios que podem aparecer.";
 	}
 }
