@@ -10,7 +10,12 @@ public class HelloController {
 	
 	@GetMapping
 	public String hello() {
-		return "Hello World";
+		return "Hello World!\n\n"
+				+ "Habilidades utilizadas hoje:\n"
+				+ "\tPersitência;\n"
+				+ "\tOrientação ao Detalhe;\n"
+				+ "\nMentalidade utilizada hoje:\n"
+				+ "\tMentalidade de Crescimento;";
 	}
 
 }
