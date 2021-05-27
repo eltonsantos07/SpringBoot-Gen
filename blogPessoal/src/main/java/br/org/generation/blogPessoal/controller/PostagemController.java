@@ -46,7 +46,7 @@ public class PostagemController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Postagem> puttPostagem (@RequestBody Postagem postagem){
+	public ResponseEntity<Postagem> putPostagem (@RequestBody Postagem postagem){
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
 	}
 }
