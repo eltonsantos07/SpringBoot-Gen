@@ -1,17 +1,16 @@
 package br.org.generation.blogPessoal.model;
 
-import java.util.List;
+import java.util.List;//ok
+import javax.persistence.CascadeType;//ok
+import javax.persistence.Entity;//ok
+import javax.persistence.GeneratedValue;//ok
+import javax.persistence.GenerationType;//ok
+import javax.persistence.Id;//ok
+import javax.persistence.OneToMany;//ok
+import javax.persistence.Table;//ok
+import javax.validation.constraints.NotNull;//ok
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;//ok
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_tema")
@@ -51,6 +50,5 @@ public class Tema {
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
-	
 	
 }

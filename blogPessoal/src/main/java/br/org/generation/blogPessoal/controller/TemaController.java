@@ -1,18 +1,19 @@
 package br.org.generation.blogPessoal.controller;
 
-import java.util.List;
+import java.util.List;//ok
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;//ok
+import org.springframework.http.HttpStatus;//ok
+import org.springframework.http.ResponseEntity;//ok
+import org.springframework.web.bind.annotation.CrossOrigin;//ok
+import org.springframework.web.bind.annotation.DeleteMapping;//ok
+import org.springframework.web.bind.annotation.GetMapping;//ok
+import org.springframework.web.bind.annotation.PathVariable;//ok
+import org.springframework.web.bind.annotation.PostMapping;//ok
+import org.springframework.web.bind.annotation.PutMapping;//ok
+import org.springframework.web.bind.annotation.RequestBody;//ok
+import org.springframework.web.bind.annotation.RequestMapping;//ok
+import org.springframework.web.bind.annotation.RestController;//ok
 
 import br.org.generation.blogPessoal.model.Tema;
 import br.org.generation.blogPessoal.repository.TemaRepository;
@@ -22,31 +23,32 @@ import br.org.generation.blogPessoal.repository.TemaRepository;
 @RequestMapping("/tema")
 public class TemaController {
 	
-	@Autowired TemaRepository repository;
+	@Autowired 
+	private TemaRepository repository;
 	
 	@GetMapping
 	public ResponseEntity<List<Tema>> getAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
-	@GetMapping
-	public ResponseEntity<Tema> getById(@PathVariable long id){
+	@GetMapping("/{id}")
+	public ResponseEntity<Tema> getById (@PathVariable long id){
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
 	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Tema>> getByName(@PathVariable String nome){
+	public ResponseEntity<List<Tema>> getByName (@PathVariable String nome){
 		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(nome));
 	}
 	
 	@PostMapping
-	public ResponseEntity<Tema> postTema (@PathVariable Tema tema){
+	public ResponseEntity<Tema> postTema (@RequestBody Tema tema){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
 	}
 	
 	@PutMapping
-	public ResponseEntity<Tema> putTema (@PathVariable Tema tema){
+	public ResponseEntity<Tema> putTema (@RequestBody Tema tema){
 		return ResponseEntity.ok(repository.save(tema));
 	}
 	
