@@ -1,12 +1,17 @@
 package br.org.generation.blogPessoal.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -17,16 +22,24 @@ public class Usuario {
 	private long id;
 	
 	@NotNull
-	@Size(min = 2, max = 1000)
+	@Size(min = 2)
 	private String nome;
 	
 	@NotNull
-	@Size(min = 5, max = 1000)
+	@Size(min = 5)
 	private String usuario;
 	
 	@NotNull
-	@Size(min = 5, max = 1000)
+	@Size(min = 5)
 	private String senha;
+	
+	@NotNull
+	@Email
+	private String email;
+	
+	@NotNull
+	@DateTimeFormat
+	private LocalDate dataNascimento;
 
 	public long getId() {
 		return id;
@@ -58,6 +71,22 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 }

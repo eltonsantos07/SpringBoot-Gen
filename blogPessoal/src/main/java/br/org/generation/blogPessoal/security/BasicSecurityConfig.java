@@ -13,22 +13,22 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
 	private UserDetailsService userDetailsService;
-	
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		
+
 		auth.userDetailsService(userDetailsService);
 	}
-	
+
 	@Bean
 	public PasswordEncoder passworEncoder() {
-		
+
 		return new BCryptPasswordEncoder();
 	}
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		
@@ -41,6 +41,5 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 		.and().cors()
 		.and().csrf().disable();
 	}
-	
 
 }

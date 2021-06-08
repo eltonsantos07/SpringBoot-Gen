@@ -1,20 +1,22 @@
 package br.org.generation.blogPessoal.security;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import br.org.generation.blogPessoal.model.Usuario;
-import javassist.SerialVersionUID;
 
-public class UserDetailsImpl implements UserDetails{
+public class UserDetailsImpl implements UserDetails {
 	
-	private static final long SerialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 	private String userName;
 	
 	private String password;
+	
+	private List<GrantedAuthority> authorities;
 	
 	public  UserDetailsImpl(Usuario user) {
 		// TODO Auto-generated constructor stub
@@ -27,7 +29,7 @@ public class UserDetailsImpl implements UserDetails{
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return null;
+		return authorities;
 	}
 
 	@Override
@@ -64,22 +66,6 @@ public class UserDetailsImpl implements UserDetails{
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public static long getSerialversionuid() {
-		return SerialVersionUID;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 	
 }
