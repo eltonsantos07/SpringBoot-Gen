@@ -41,6 +41,22 @@ public class Usuario {
 	@DateTimeFormat
 	private LocalDate dataNascimento;
 
+	 {
+		
+	}
+	 
+	 public Usuario() {}
+
+	 public Usuario(String nome, String usuario, String senha, String email) {
+		super();
+		//this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.email = email;
+		//this.dataNascimento = dataNascimento;
+	}
+
 	public long getId() {
 		return id;
 	}

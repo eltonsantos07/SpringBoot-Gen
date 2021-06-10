@@ -27,6 +27,16 @@ public class Tema {
 	@JsonIgnoreProperties("tema")
 	private List<Postagem> postagem;
 
+	//novo
+	public Tema() {}
+	
+	//novo
+	public Tema(Long id, String descricao) {
+		// TODO Auto-generated constructor stub
+		this.id = id;
+		this.descricao = descricao;
+	}
+
 	public long getId() {
 		return id;
 	}
